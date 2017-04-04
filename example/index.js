@@ -1,24 +1,19 @@
-const fs = require('fs');
+const express = require('express');
+const app = express();
 const path = require('path');
 
-var contract = {
-    baseUrl: "",
-    services: {}
-};
+const bodyParser = require('body-parser');
+app.use(bodyParser.json()); // for parsing application/json
 
-var files = fs.readdirSync(path.join(__dirname, 'services'));
+const serviceApi = require('../lib');
+serviceApi.setup(path.join(__dirname, 'services'), app);
 
-for (var i = 0; i < files.length; i++) {
-    var service = require(path.join(__dirname, 'services', files[i]));
+app.get('/', function (req, res) {
+    res.send('Hello World!')
+});
 
-    var serviceName = files[i].substring(0, files[i].indexOf('.'));
-    contract.services[serviceName] = {};
+app.post('/api/nca', serviceApi.request);
 
-    for (var item in service) {
-        contract.services[serviceName][item] = {
-            url: "/api/nca/" + serviceName + '/' + item
-        };
-    }
-}
-
-console.log(JSON.stringify(contract))
+app.listen(3000, function () {
+    console.log('Example app listening on port 3000!')
+});
