@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
 
 const serviceApi = require('../lib');
-serviceApi.setup(path.join(__dirname, 'services'), app);
+serviceApi.setup(path.join(__dirname, 'services'));
 
 app.get('/', function (req, res) {
     res.send('Hello World!')
