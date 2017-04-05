@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/dwnz/node-contract-api/issues"
   },
-  "homepage": "https://github.com/dwnz/node-contract-api#readme"
+  "homepage": "https://github.com/dwnz/node-contract-api#readme",
+  "dependencies": {
+    "command-line-args": "^4.0.2",
+    "request": "^2.81.0"
+  }
 }

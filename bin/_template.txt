@@ -1,0 +1,22 @@
+const request = require('request');
+
+function makeRequest(body, callback) {
+    request.post(
+        {
+            method: 'post',
+            body: body,
+            json: true,
+            url: "http://localhost:3000/api/nca"
+        }
+        ,
+        function (err, response, body) {
+            callback(body[0], body[1]);
+        }
+    );
+};
+
+var service = {
+    /**CONTENT**/
+};
+
+module.exports = service;
