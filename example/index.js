@@ -13,7 +13,8 @@ app.get('/', function (req, res) {
 });
 
 app.post('/api/nca', serviceApi.request);
+app.get('/api/nca/contract', serviceApi.contract);
 
 app.listen(3000, function () {
-    console.log('Example app listening on port 3000!')
+    console.log('Example app listening on port 3000!');
 });
