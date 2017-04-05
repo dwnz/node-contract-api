@@ -1,2 +1,2 @@
 # node-contract-api
-Node contract based API
+An opinionated framework for making service calls over HTTP, useful for splitting up your apps
